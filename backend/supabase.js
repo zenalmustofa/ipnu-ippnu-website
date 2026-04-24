@@ -26,7 +26,7 @@ async function supabaseCall(table, method = 'GET', data = null, filter = null) {
   const options = {
     method,
     headers: {
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
+      'apikey': SUPABASE_KEY,
       'Content-Type': 'application/json',
       'Prefer': 'return=representation'
     }
