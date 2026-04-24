@@ -14,18 +14,18 @@
 let isAdmin = false;
 
 /* ── INIT ──────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-  renderArtikel();
-  renderFoto();
+document.addEventListener('DOMContentLoaded', async () => {
+  await renderArtikel();
+  await renderFoto();
   observeFadeIn();
   initNavScroll();
   initModalClose();
 });
 
 /* ── RENDER ARTIKEL ────────────────────────────────────────── */
-function renderArtikel() {
+async function renderArtikel() {
   const grid = document.getElementById('artikelGrid');
-  const data  = apiGetArtikel();
+  const data  = await apiGetArtikel();
 
   grid.innerHTML = data.map(a => {
     // Gunakan foto jika tersedia, fallback ke emoji + gradient
@@ -58,9 +58,9 @@ function renderArtikel() {
 }
 
 /* ── RENDER FOTO DOKUMENTASI ────────────────────────────────── */
-function renderFoto() {
+async function renderFoto() {
   const grid = document.getElementById('fotoGrid');
-  const data  = apiGetFoto();
+  const data  = await apiGetFoto();
 
   grid.innerHTML = data.map(f => {
     const imgContent = f.src
@@ -83,8 +83,9 @@ function renderFoto() {
 }
 
 /* ── BUKA ARTIKEL (MODAL READ) ──────────────────────────────── */
-function bukaArtikel(id) {
-  const a = apiGetArtikel().find(x => x.id === id);
+async function bukaArtikel(id) {
+  const data = await apiGetArtikel();
+  const a = data.find(x => x.id === id);
   if (!a) return;
 
   // Cover foto atau fallback
@@ -127,7 +128,7 @@ function doLogin() {
 }
 
 /* ── SUBMIT ARTIKEL ─────────────────────────────────────────── */
-function submitArtikel() {
+async function submitArtikel() {
   const judul    = document.getElementById('artJudul').value.trim();
   const isi      = document.getElementById('artIsi').value.trim();
   const kategori = document.getElementById('artKategori').value;
@@ -136,14 +137,14 @@ function submitArtikel() {
   // Simpan base64 atau URL dari preview
   const foto = document.getElementById('artFotoPreviewImg').dataset.src || '';
 
-  const result = apiTambahArtikel({ judul, isi, kategori, penulis, foto });
+  const result = await apiTambahArtikel({ judul, isi, kategori, penulis, foto });
 
   if (!result.ok) {
     showToast('⚠️ ' + result.pesan);
     return;
   }
 
-  renderArtikel();
+  await renderArtikel();
   tutupModal('artikelModal');
 
   // Reset form
@@ -201,25 +202,25 @@ function submitFoto() {
   const tgl   = document.getElementById('fotoTanggal').value;
   const src   = document.getElementById('fotoFile').dataset.base64 || '';
 
-  const result = apiTambahFoto({ judul, tanggal: tgl, src });
+  apiTambahFoto({ judul, tanggal: tgl, src }).then(result => {
+    if (!result.ok) {
+      showToast('⚠️ ' + result.pesan);
+      return;
+    }
 
-  if (!result.ok) {
-    showToast('⚠️ ' + result.pesan);
-    return;
-  }
+    renderFoto();
+    tutupModal('uploadFotoModal');
 
-  renderFoto();
-  tutupModal('uploadFotoModal');
+    // Reset form
+    document.getElementById('fotoJudul').value          = '';
+    document.getElementById('fotoTanggal').value        = '';
+    document.getElementById('fotoPreviewName').textContent = '';
+    document.getElementById('fotoFile').dataset.base64  = '';
+    document.getElementById('fotoFile').value           = '';
 
-  // Reset form
-  document.getElementById('fotoJudul').value          = '';
-  document.getElementById('fotoTanggal').value        = '';
-  document.getElementById('fotoPreviewName').textContent = '';
-  document.getElementById('fotoFile').dataset.base64  = '';
-  document.getElementById('fotoFile').value           = '';
-
-  showToast('✅ ' + result.pesan);
-  document.getElementById('dokumentasi').scrollIntoView({ behavior: 'smooth' });
+    showToast('✅ ' + result.pesan);
+    document.getElementById('dokumentasi').scrollIntoView({ behavior: 'smooth' });
+  });
 }
 
 /* ── MODAL HELPERS ──────────────────────────────────────────── */

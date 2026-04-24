@@ -22,85 +22,109 @@ function apiLogin(username, password) {
 
 /* ── ARTIKEL ──────────────────────────────────────────────── */
 
-/** Ambil semua artikel (urut terbaru dulu) */
-function apiGetArtikel() {
-  return [...artikelData];
+/** Ambil semua artikel dari Supabase (urut terbaru dulu) */
+async function apiGetArtikel() {
+  try {
+    const data = await supabaseGetArtikel();
+    return data;
+  } catch (err) {
+    showToast('❌ Gagal memuat artikel!');
+    return [];
+  }
 }
 
 /**
- * Tambah artikel baru.
+ * Tambah artikel baru ke Supabase.
  * @param {Object} payload - { judul, kategori, penulis, isi, foto }
- * foto boleh berupa: "" | URL string | File object (base64 dikonversi di frontend)
  */
-function apiTambahArtikel(payload) {
+async function apiTambahArtikel(payload) {
   const { judul, kategori, penulis, isi, foto } = payload;
   if (!judul || !isi) {
     return { ok: false, pesan: 'Judul dan isi tidak boleh kosong!' };
   }
-  const artikel = {
-    id       : nextId(artikelData),
-    judul,
-    kategori : kategori || 'Kegiatan',
-    penulis  : penulis  || 'Admin',
-    tanggal  : formatTanggal(new Date()),
-    isi,
-    foto     : foto || '',
-    emoji    : randomFrom(EMOJIS),
-    grad     : randomFrom(GRADIENTS),
-  };
-  artikelData.unshift(artikel);
-  return { ok: true, pesan: 'Artikel berhasil diposting!', data: artikel };
+  
+  try {
+    const artikel = {
+      judul,
+      kategori : kategori || 'Kegiatan',
+      penulis  : penulis  || 'Admin',
+      tanggal  : formatTanggal(new Date()),
+      isi,
+      foto     : foto || '',
+      emoji    : randomFrom(EMOJIS),
+      grad     : randomFrom(GRADIENTS),
+    };
+    
+    await supabaseTambahArtikel(artikel);
+    return { ok: true, pesan: 'Artikel berhasil diposting!' };
+  } catch (err) {
+    return { ok: false, pesan: 'Gagal menyimpan artikel ke database!' };
+  }
 }
 
 /**
- * Hapus artikel berdasarkan id.
+ * Hapus artikel berdasarkan id dari Supabase.
  */
-function apiHapusArtikel(id) {
-  const idx = artikelData.findIndex(a => a.id === id);
-  if (idx === -1) return { ok: false, pesan: 'Artikel tidak ditemukan.' };
-  artikelData.splice(idx, 1);
-  return { ok: true, pesan: 'Artikel dihapus.' };
+async function apiHapusArtikel(id) {
+  try {
+    await supabaseHapusArtikel(id);
+    return { ok: true, pesan: 'Artikel dihapus.' };
+  } catch (err) {
+    return { ok: false, pesan: 'Gagal menghapus artikel!' };
+  }
 }
 
 /* ── FOTO DOKUMENTASI ─────────────────────────────────────── */
 
-/** Ambil semua foto */
-function apiGetFoto() {
-  return [...fotoData];
+/** Ambil semua foto dari Supabase */
+async function apiGetFoto() {
+  try {
+    const data = await supabaseGetFoto();
+    return data;
+  } catch (err) {
+    showToast('❌ Gagal memuat foto!');
+    return [];
+  }
 }
 
 /**
- * Tambah foto baru.
+ * Tambah foto baru ke Supabase.
  * @param {Object} payload - { judul, tanggal, src }
- * src boleh berupa: "" | URL string | base64 data URL
  */
-function apiTambahFoto(payload) {
+async function apiTambahFoto(payload) {
   const { judul, tanggal, src } = payload;
   if (!judul) {
     return { ok: false, pesan: 'Judul foto tidak boleh kosong!' };
   }
-  const tglStr = tanggal
-    ? new Date(tanggal).toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' })
-    : formatTanggal(new Date());
 
-  const foto = {
-    id     : nextId(fotoData),
-    judul,
-    tanggal: tglStr,
-    src    : src || '',
-    grad   : randomFrom(GRADIENTS),
-    emoji  : randomFrom(EMOJIS),
-  };
-  fotoData.unshift(foto);
-  return { ok: true, pesan: 'Foto berhasil diupload!', data: foto };
+  try {
+    const tglStr = tanggal
+      ? new Date(tanggal).toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' })
+      : formatTanggal(new Date());
+
+    const foto = {
+      judul,
+      tanggal: tglStr,
+      src    : src || '',
+      grad   : randomFrom(GRADIENTS),
+      emoji  : randomFrom(EMOJIS),
+    };
+    
+    await supabaseTambahFoto(foto);
+    return { ok: true, pesan: 'Foto berhasil diupload!' };
+  } catch (err) {
+    return { ok: false, pesan: 'Gagal menyimpan foto ke database!' };
+  }
 }
 
 /**
- * Hapus foto berdasarkan id.
+ * Hapus foto berdasarkan id dari Supabase.
  */
-function apiHapusFoto(id) {
-  const idx = fotoData.findIndex(f => f.id === id);
-  if (idx === -1) return { ok: false, pesan: 'Foto tidak ditemukan.' };
-  fotoData.splice(idx, 1);
-  return { ok: true, pesan: 'Foto dihapus.' };
+async function apiHapusFoto(id) {
+  try {
+    await supabaseHapusFoto(id);
+    return { ok: true, pesan: 'Foto dihapus.' };
+  } catch (err) {
+    return { ok: false, pesan: 'Gagal menghapus foto!' };
+  }
 }
