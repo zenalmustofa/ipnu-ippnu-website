@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPNU IPPNU Padangan</title>
+  <meta name="description" content="Website resmi IPNU IPPNU Pimpinan Anak Cabang Padangan, Bojonegoro, Jawa Timur.">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="frontend/css/style.css">
+</head>
+<body>
+
+<!-- ── BACKGROUND BLOBS ── -->
+<div class="bg-blobs">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+
+<!-- ── NAVIGASI ── -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">
+    <div class="logo-emblem">IP</div>
+    <div>
+      <div class="logo-text">IPNU · IPPNU</div>
+      <div class="logo-sub">Pimpinan Ranting Padangan</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home"        class="active" onclick="setActive(this)">Beranda</a></li>
+    <li><a href="#tentang"     onclick="setActive(this)">Tentang</a></li>
+    <li><a href="#kegiatan"    onclick="setActive(this)">Kegiatan</a></li>
+    <li><a href="#artikel"     onclick="setActive(this)">Artikel</a></li>
+    <li><a href="#dokumentasi" onclick="setActive(this)">Dokumentasi</a></li>
+  </ul>
+  <button class="nav-btn" onclick="bukaModal('loginModal')">Admin Login</button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════ -->
+<section id="home">
+  <div class="hero-inner">
+
+    <!-- Kiri: teks -->
+    <div>
+      <div class="hero-label"><span></span>Pelajar NU Ranting Padangan</div>
+      <h1 class="hero-title">
+        Selamat Belajar<br>
+        <span class="gradient">Berjuang &</span><br>
+        Bertaqwa
+      </h1>
+      <p class="hero-desc">
+        IPNU IPPNU Padangan — wadah pelajar Nahdlatul Ulama yang berkomitmen
+        membangun generasi berakhlak mulia, berwawasan luas, dan bermanfaat
+        bagi masyarakat.
+      </p>
+      <div class="hero-btns">
+        <a href="#tentang" class="btn-primary">Kenali Kami →</a>
+        <a href="#artikel" class="btn-outline">Baca Artikel</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">12<span>+</span></div>
+          <div class="stat-label">Tahun Berdiri</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">250<span>+</span></div>
+          <div class="stat-label">Anggota Aktif</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">80<span>+</span></div>
+          <div class="stat-label">Kegiatan/Tahun</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kanan: kartu visual -->
+    <div class="hero-visual">
+      <div class="float-badge left">
+        <div class="badge-dot" style="background:var(--green)"></div>
+        Aktif Berkegiatan
+      </div>
+      <div class="hero-card-main">
+        <div class="card-org-badge">
+          <div class="badge-icon">🌙</div>
+          <div class="badge-text">
+            <h3>IPNU · IPPNU</h3>
+            <p>Pimpinan Ranting Padangan</p>
+          </div>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-info-row">
+          <span class="card-info-label">Wilayah</span>
+          <span class="card-info-value">Desa Padangan</span>
+        </div>
+        <div class="card-info-row">
+          <span class="card-info-label">Kabupaten</span>
+          <span class="card-info-value">Kediri, Jawa Timur</span>
+        </div>
+        <div class="card-info-row">
+          <span class="card-info-label">Bidang</span>
+          <span class="card-info-value">Pelajar & Keagamaan</span>
+        </div>
+        <div class="card-divider"></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag tag-sky">📚 Pendidikan</span>
+          <span class="tag tag-green">🕌 Keagamaan</span>
+          <span class="tag tag-sky">🤝 Sosial</span>
+        </div>
+      </div>
+      <div class="float-badge right">
+        <div class="badge-dot" style="background:var(--sky)"></div>
+        Terbuka untuk Semua
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TENTANG
+══════════════════════════════════════════════════════════ -->
+<section id="tentang">
+  <div class="section-inner">
+    <div class="tentang-grid">
+
+      <div class="fade-in">
+        <div class="tentang-main-card">
+          <h3>Tentang IPNU IPPNU Padangan</h3>
+          <p>
+            Ikatan Pelajar Nahdlatul Ulama (IPNU) dan Ikatan Pelajar Putri
+            Nahdlatul Ulama (IPPNU) Padangan adalah organisasi pelajar yang
+            berada di bawah naungan Nahdlatul Ulama. Kami hadir sebagai wadah
+            pembinaan generasi muda yang berakhlakul karimah, berilmu, dan siap
+            berkontribusi nyata bagi agama, bangsa, dan masyarakat Padangan.
+          </p>
+        </div>
+      </div>
+
+      <div class="visi-misi-cards fade-in">
+        <div class="vm-card">
+          <h4>🌟 Visi</h4>
+          <p>
+            Terwujudnya pelajar bangsa yang bertaqwa kepada Allah SWT, berilmu,
+            berakhlak mulia, dan berwawasan kebangsaan dalam rangka menegakkan
+            ajaran Islam Ahlussunnah wal Jama'ah.
+          </p>
+        </div>
+        <div class="vm-card misi">
+          <h4>🎯 Misi</h4>
+          <ul>
+            <li>Membangun kader pelajar yang berkualitas dan berkarakter</li>
+            <li>Meningkatkan kegiatan keagamaan berbasis Aswaja</li>
+            <li>Menumbuhkan semangat literasi dan prestasi akademik</li>
+            <li>Memperkuat persatuan dan ukhuwah antar pelajar</li>
+            <li>Berperan aktif dalam pembangunan masyarakat Padangan</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     KEGIATAN
+══════════════════════════════════════════════════════════ -->
+<section id="kegiatan">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align:center;margin-bottom:8px">
+      <div class="section-label">Program Kerja</div>
+      <h2 class="section-title">Kegiatan Unggulan</h2>
+      <p class="section-desc" style="margin:0 auto">
+        Berbagai program nyata untuk membentuk generasi pelajar yang unggul dan berdaya guna
+      </p>
+    </div>
+    <div class="kegiatan-grid">
+      <div class="kegiatan-card fade-in">
+        <div class="kegiatan-icon ki1">📖</div>
+        <h4>Kajian Kitab & Keagamaan</h4>
+        <p>Pengajian rutin, kajian kitab kuning, dan pelatihan ilmu-ilmu agama berbasis Ahlussunnah wal Jama'ah.</p>
+      </div>
+      <div class="kegiatan-card fade-in">
+        <div class="kegiatan-icon ki2">🎓</div>
+        <h4>Pelatihan & Kaderisasi</h4>
+        <p>Masa kesetiaan anggota (Makesta), Latihan Kader Muda (Lakmud), dan pelatihan kepemimpinan.</p>
+      </div>
+      <div class="kegiatan-card fade-in">
+        <div class="kegiatan-icon ki3">🤝</div>
+        <h4>Pengabdian Masyarakat</h4>
+        <p>Bakti sosial, pendampingan belajar, dan program pemberdayaan masyarakat di kecamatan Padangan.</p>
+      </div>
+      <div class="kegiatan-card fade-in">
+        <div class="kegiatan-icon ki4">🏆</div>
+        <h4>Lomba & Kompetisi</h4>
+        <p>Olimpiade pelajar, MTQ, debat, dan berbagai kompetisi untuk mengasah potensi anggota.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ARTIKEL
+══════════════════════════════════════════════════════════ -->
+<section id="artikel">
+  <div class="section-inner">
+
+    <div class="artikel-header fade-in">
+      <div>
+        <div class="section-label">Warta Organisasi</div>
+        <h2 class="section-title">Artikel & Berita</h2>
+      </div>
+      <div style="display:flex;gap:12px">
+        <!-- Tombol ini hanya muncul saat Admin login (via JS) -->
+        <button class="btn-outline" id="newArtikelBtn"
+          onclick="bukaModal('artikelModal')"
+          style="font-size:13px;padding:10px 20px;display:none">
+          ✍️ Tulis Artikel
+        </button>
+      </div>
+    </div>
+
+    <!-- Admin bar — tersembunyi, ditampilkan JS saat login -->
+    <div class="admin-bar fade-in" id="adminArtikelBar" style="display:none">
+      <span class="admin-bar-label">
+        <span class="admin-indicator"></span>
+        Mode Admin Aktif — Anda dapat menambah artikel baru
+      </span>
+      <button class="btn-primary" onclick="bukaModal('artikelModal')"
+        style="font-size:13px;padding:10px 22px">
+        + Tambah Artikel
+      </button>
+    </div>
+
+    <!-- Grid artikel dirender oleh JS -->
+    <div class="artikel-grid" id="artikelGrid"></div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     DOKUMENTASI
+══════════════════════════════════════════════════════════ -->
+<section id="dokumentasi">
+  <div class="section-inner">
+
+    <div class="doku-header fade-in">
+      <div>
+        <div class="section-label">Galeri Kegiatan</div>
+        <h2 class="section-title">Dokumentasi</h2>
+      </div>
+      <!-- Admin bar dokumentasi -->
+      <div id="adminDokuBar" style="display:none">
+        <button class="btn-primary" onclick="bukaModal('uploadFotoModal')"
+          style="font-size:13px;padding:10px 22px">
+          📷 Upload Foto
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid foto dirender oleh JS -->
+    <div class="foto-grid" id="fotoGrid"></div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>IPNU · IPPNU Padangan</h3>
+        <p>
+          Pimpinan Ranting IPNU - IPPNU Padangan, Kediri — Nahdlatul Ulama.
+          Bersama membangun generasi bangsa yang berakhlak mulia dan berdaya guna.
+        </p>
+        <div class="footer-socials">
+          <a class="social-btn" href="#" title="Facebook">📘</a>
+          <a class="social-btn" href="#" title="Instagram">📸</a>
+          <a class="social-btn" href="#" title="WhatsApp">💬</a>
+          <a class="social-btn" href="#" title="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#kegiatan">Kegiatan</a></li>
+          <li><a href="#artikel">Artikel</a></li>
+          <li><a href="#dokumentasi">Dokumentasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="#">📍 Padangan, Kediri</a></li>
+          <li><a href="#">✉️ ipnuippnupadangan5@gmail.com</a></li>
+          <li><a href="#">📱 WhatsApp Group</a></li>
+          <li><a href="#">🕌 Gedung Madin Miftahul Huda Desa Padangan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 IPNU IPPNU Padangan. Hak cipta dilindungi.</p>
+      <div class="footer-badge">🌙 Ahlussunnah wal Jama'ah</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     MODALS
+══════════════════════════════════════════════════════════ -->
+
+<!-- LOGIN -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="tutupModal('loginModal')">✕</button>
+    <div class="modal-cat">Admin Panel</div>
+    <h2 class="modal-title">Masuk sebagai Admin</h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:24px">
+      Masukkan kredensial untuk mengelola konten website.
+    </p>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" id="loginUser" placeholder="admin"
+        onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="loginPass" placeholder="••••••••"
+        onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="btn-primary" onclick="doLogin()"
+      style="width:100%;justify-content:center;display:flex;margin-top:8px">
+      Masuk →
+    </button>
+    <p style="font-size:12px;color:var(--muted);margin-top:16px;text-align:center">
+      Demo: username <b>admin</b> / password <b>ipnu2025</b>
+    </p>
+  </div>
+</div>
+
+<!-- TULIS ARTIKEL (Admin) -->
+<div class="modal-overlay" id="artikelModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="tutupModal('artikelModal')">✕</button>
+    <div class="modal-cat">Admin · Konten</div>
+    <h2 class="modal-title">Tulis Artikel Baru</h2>
+
+    <div class="form-group">
+      <label>Judul Artikel</label>
+      <input type="text" id="artJudul" placeholder="Masukkan judul artikel...">
+    </div>
+    <div class="form-group">
+      <label>Kategori</label>
+      <select id="artKategori">
+        <option>Kegiatan</option>
+        <option>Pendidikan</option>
+        <option>Keagamaan</option>
+        <option>Pengumuman</option>
+        <option>Inspirasi</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Penulis</label>
+      <input type="text" id="artPenulis" placeholder="Nama penulis...">
+    </div>
+
+    <!-- UPLOAD FOTO ARTIKEL (baru) -->
+    <div class="form-group">
+      <label>Foto Artikel (opsional)</label>
+      <div class="upload-area" onclick="document.getElementById('artFotoFile').click()">
+        <div class="icon">🖼️</div>
+        <p><strong>Klik untuk pilih foto</strong></p>
+        <p style="font-size:12px;margin-top:4px">JPG, PNG, WebP – maks. 5MB</p>
+        <div id="artFotoName" style="margin-top:8px;font-size:13px;color:var(--sky);font-weight:600"></div>
+      </div>
+      <input type="file" id="artFotoFile" accept="image/*" style="display:none"
+        onchange="previewArtFoto(this)">
+      <!-- Preview gambar yang dipilih -->
+      <div class="img-preview-wrap" id="artFotoPreviewWrap">
+        <span class="placeholder" id="artFotoPlaceholder">🖼️</span>
+        <img id="artFotoPreviewImg" src="" alt="preview" style="display:none" data-src="">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Isi Artikel</label>
+      <textarea id="artIsi" placeholder="Tulis isi artikel di sini..." style="min-height:150px"></textarea>
+    </div>
+
+    <button class="btn-primary" onclick="submitArtikel()"
+      style="width:100%;display:flex;justify-content:center">
+      Posting Artikel ✓
+    </button>
+  </div>
+</div>
+
+<!-- BACA ARTIKEL -->
+<div class="modal-overlay" id="readArtikelModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="tutupModal('readArtikelModal')">✕</button>
+
+    <!-- Cover foto artikel -->
+    <div class="modal-cover g1" id="readCover">
+      <span class="emoji">📰</span>
+    </div>
+
+    <div class="modal-cat" id="readCat"></div>
+    <h2 class="modal-title" id="readJudul"></h2>
+    <div class="modal-meta">
+      <span id="readPenulis"></span>
+      <span id="readTanggal"></span>
+    </div>
+    <div class="modal-body" id="readIsi"></div>
+  </div>
+</div>
+
+<!-- UPLOAD FOTO DOKUMENTASI (Admin) -->
+<div class="modal-overlay" id="uploadFotoModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="tutupModal('uploadFotoModal')">✕</button>
+    <div class="modal-cat">Admin · Dokumentasi</div>
+    <h2 class="modal-title">Upload Foto Dokumentasi</h2>
+
+    <div class="form-group">
+      <label>Judul Foto / Kegiatan</label>
+      <input type="text" id="fotoJudul" placeholder="Contoh: Kegiatan Makesta 2025...">
+    </div>
+    <div class="form-group">
+      <label>Tanggal Kegiatan</label>
+      <input type="date" id="fotoTanggal">
+    </div>
+
+    <div class="upload-area" onclick="document.getElementById('fotoFile').click()">
+      <div class="icon">📷</div>
+      <p><strong>Klik untuk pilih foto</strong> atau drag & drop di sini</p>
+      <p style="font-size:12px;margin-top:6px">JPG, PNG, WebP – maks. 10MB</p>
+      <div id="fotoPreviewName" style="margin-top:10px;font-size:13px;color:var(--sky);font-weight:600"></div>
+    </div>
+    <input type="file" id="fotoFile" accept="image/*" style="display:none"
+      onchange="previewFoto(this)">
+
+    <button class="btn-primary" onclick="submitFoto()"
+      style="width:100%;display:flex;justify-content:center">
+      Upload Foto ✓
+    </button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCRIPTS
+     Urutan: data → api → app
+══════════════════════════════════════════════════════════ -->
+<script src="backend/data.js"></script>
+<script src="backend/api.js"></script>
+<script src="frontend/js/app.js"></script>
+
+</body>
+</html>
